@@ -1,0 +1,27 @@
+name: Release
+
+# Fires when a version tag is pushed, e.g. `git tag v1.0.0 && git push --tags`.
+# Builds the .s9pk for x86_64 and aarch64 and attaches them to a GitHub Release.
+
+on:
+  push:
+    tags:
+      - 'v*.*'
+  workflow_dispatch:
+
+jobs:
+  release:
+    uses: start9labs/shared-workflows/.github/workflows/release.yml@master
+    with:
+      FREE_DISK_SPACE: true
+      # Leave RELEASE_REGISTRY and S3_S9PKS_BASE_URL blank if you're not
+      # publishing to an s9pk registry — the workflow will skip those
+      # steps and just attach the built .s9pk files to the GitHub Release.
+      RELEASE_REGISTRY: ${{ vars.RELEASE_REGISTRY }}
+      S3_S9PKS_BASE_URL: ${{ vars.S3_S9PKS_BASE_URL }}
+    secrets:
+      DEV_KEY: ${{ secrets.DEV_KEY }}
+      S3_ACCESS_KEY: ${{ secrets.S3_ACCESS_KEY }}
+      S3_SECRET_KEY: ${{ secrets.S3_SECRET_KEY }}
+    permissions:
+      contents: write

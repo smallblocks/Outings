@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <defs>
+    <linearGradient id="paper" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fdf3dc"/>
+      <stop offset="1" stop-color="#f0dfb5"/>
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="48" fill="url(#paper)"/>
+  <!-- Calendar body -->
+  <rect x="48" y="64" width="160" height="152" rx="14" fill="#fff" stroke="#2b241b" stroke-width="6"/>
+  <!-- Header band -->
+  <rect x="48" y="64" width="160" height="36" rx="14" fill="#d7452f"/>
+  <rect x="48" y="90" width="160" height="10" fill="#d7452f"/>
+  <!-- Binder rings -->
+  <rect x="78" y="48" width="10" height="38" rx="3" fill="#2b241b"/>
+  <rect x="168" y="48" width="10" height="38" rx="3" fill="#2b241b"/>
+  <!-- Grid dots (days) -->
+  <g fill="#2b241b">
+    <circle cx="76"  cy="130" r="5"/>
+    <circle cx="108" cy="130" r="5"/>
+    <circle cx="140" cy="130" r="5"/>
+    <circle cx="172" cy="130" r="5"/>
+
+    <circle cx="76"  cy="162" r="5"/>
+    <circle cx="108" cy="162" r="5"/>
+    <circle cx="140" cy="162" r="5"/>
+    <circle cx="172" cy="162" r="5"/>
+
+    <circle cx="76"  cy="194" r="5"/>
+    <circle cx="108" cy="194" r="5"/>
+    <circle cx="140" cy="194" r="5"/>
+  </g>
+  <!-- Accent day -->
+  <circle cx="172" cy="194" r="10" fill="#f2a43a"/>
+  <!-- Star -->
+  <g transform="translate(200 40) scale(0.9)" fill="#f2a43a" stroke="#2b241b" stroke-width="3" stroke-linejoin="round">
+    <path d="M0,-22 L6,-7 L22,-5 L10,6 L14,22 L0,14 L-14,22 L-10,6 L-22,-5 L-6,-7 Z"/>
+  </g>
+</svg>

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Local Outings</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;1,9..144,700&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="paper">
+    <header class="masthead">
+      <div class="brand">
+        <span class="star">✶</span>
+        <h1>Local Outings</h1>
+        <span class="subtitle">what's happening near us</span>
+      </div>
+      <div class="controls">
+        <div class="view-toggle" role="tablist" aria-label="Calendar view">
+          <button data-view="month" class="active" role="tab">Month</button>
+          <button data-view="week" role="tab">Week</button>
+        </div>
+        <div class="nav">
+          <button id="prev" aria-label="Previous">‹</button>
+          <span id="period-label"></span>
+          <button id="next" aria-label="Next">›</button>
+          <button id="today">Today</button>
+        </div>
+      </div>
+    </header>
+
+    <section class="filters">
+      <div class="filter-row">
+        <span class="filter-label">Cities</span>
+        <div id="city-chips" class="chips"></div>
+      </div>
+      <div class="filter-row">
+        <span class="filter-label">What's on</span>
+        <div id="cat-chips" class="chips"></div>
+      </div>
+    </section>
+
+    <main id="calendar" class="month-view"></main>
+
+    <footer class="status-bar">
+      <span id="status">loading…</span>
+      <span class="spacer"></span>
+      <span id="count"></span>
+    </footer>
+  </div>
+
+  <!-- Detail popover -->
+  <dialog id="event-dialog" class="event-dialog">
+    <form method="dialog">
+      <header id="ed-header"></header>
+      <div id="ed-body"></div>
+      <footer>
+        <a id="ed-link" target="_blank" rel="noopener">Open source →</a>
+        <button value="close">Close</button>
+      </footer>
+    </form>
+  </dialog>
+
+  <script src="/app.js"></script>
+</body>
+</html>
