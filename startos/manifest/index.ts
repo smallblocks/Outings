@@ -15,16 +15,15 @@ export const manifest = setupManifest({
   description: { short, long },
   volumes: ['main'],
   images: {
-    'local-outings': {
-      // Build the image from our Dockerfile, one level up from startos/.
-      source: {
-        dockerBuild: {
-          dockerfile: '../Dockerfile',
-          workdir: '..',
-        },
-      },
-      arch: ['x86_64', 'aarch64'],
-    },
+'local-outings': {
+         source: {
+           dockerBuild: {
+             dockerfile: 'Dockerfile',
+             workdir: '.',
+           },
+         },
+         arch: ['x86_64', 'aarch64'],
+       },
   },
   alerts: {
     install: null,
