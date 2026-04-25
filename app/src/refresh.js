@@ -101,7 +101,10 @@ function validateAndNormalize(ev, city, category) {
 
 async function processPair(cfg, city, category) {
   const query = buildQuery(city, category);
-  const results = await searxng.search(cfg.searxng.url, query, { limit: 10 });
+  const results = await searxng.search(cfg.searxng.url, query, {
+    limit: 10,
+    allowSelfSigned: !!cfg.searxng.allowSelfSigned,
+  });
   if (!results.length) return { city, category, found: 0, reason: 'no search results' };
 
   const messages = [
@@ -134,6 +137,18 @@ async function runRefresh() {
     if (!cfg.searxng.url) throw new Error('SearXNG not configured');
     if (!cfg.cities.length) throw new Error('No cities configured');
     if (!cfg.categories.length) throw new Error('No categories configured');
+
+    // Diagnostic: dump exactly what the daemon loaded. Lets the user
+    // verify in logs that store.json -> /data/config.json sync worked.
+    console.log(
+      `[refresh] runtime config: ` +
+      `searxng.url=${cfg.searxng.url} ` +
+      `searxng.allowSelfSigned=${!!cfg.searxng.allowSelfSigned} ` +
+      `vllm.url=${cfg.vllm.url} ` +
+      `vllm.model=${cfg.vllm.model} ` +
+      `cities=${cfg.cities.length} ` +
+      `categories=${cfg.categories.length}`
+    );
 
     for (const cityObj of cfg.cities) {
       const city = typeof cityObj === 'string' ? cityObj : cityObj.name;
