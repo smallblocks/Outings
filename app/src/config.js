@@ -14,7 +14,8 @@ const DEFAULTS = {
     model: ''         // e.g. meta-llama/Llama-3.1-8B-Instruct
   },
   searxng: {
-    url: ''           // e.g. http://192.168.1.51:8080
+    url: '',           // e.g. http://192.168.1.51:8080
+    allowSelfSigned: false  // bypass TLS cert verification — for self-hosted SearXNG with a self-signed cert
   },
   cities: [],         // [{ name: "Evansville, IN", radiusMiles: 30 }, ...]
   categories: [
