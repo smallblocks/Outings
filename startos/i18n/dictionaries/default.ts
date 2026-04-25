@@ -25,6 +25,9 @@ const dict = {
   'SearXNG Base URL': 14,
   'e.g. http://192.168.1.51:8080 — your SearXNG instance with JSON format enabled':
     15,
+  'Allow self-signed TLS certs (SearXNG only)': 41,
+  'Turn this on if your SearXNG is on another StartOS server (or any HTTPS URL with a self-signed cert). Only affects requests to the SearXNG host above.':
+    42,
 
   // actions: manage-cities
   'Manage Cities': 16,
