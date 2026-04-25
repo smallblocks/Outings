@@ -44,15 +44,12 @@ the top to narrow by city or category, and toggle Month/Week in the header.
 
 ## SearXNG requirements
 
-Your SearXNG instance must have JSON output enabled. Edit your SearXNG
-`settings.yml`:
-
-```yaml
-search:
-  formats:
-    - html
-    - json
-```
+None! Outings scrapes SearXNG's standard HTML output, which works on every
+SearXNG install out of the box — including the StartOS SearXNG package,
+which does not expose JSON format settings. If your SearXNG uses a
+self-signed TLS cert (e.g. it's the StartOS SearXNG package on another
+StartOS server), turn on the **"Allow self-signed TLS certs (SearXNG only)"**
+toggle in the **Configure vLLM + SearXNG** action.
 
 ## vLLM requirements
 
