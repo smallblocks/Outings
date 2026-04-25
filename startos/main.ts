@@ -28,6 +28,7 @@ export const main = sdk.setupMain(async ({ effects }) => {
     },
     searxng: {
       url: store?.searxng.url ?? '',
+      allowSelfSigned: store?.searxng.allowSelfSigned ?? false,
     },
     cities: (store?.cities ?? []).map((name) => ({ name })),
     categories: store?.categories ?? [],
