@@ -61,6 +61,13 @@ const inputSpec = InputSpec.of({
     minLength: null,
     maxLength: null,
   }),
+  searxngAllowSelfSigned: Value.toggle({
+    name: i18n('Allow self-signed TLS certs (SearXNG only)'),
+    description: i18n(
+      'Turn this on if your SearXNG is on another StartOS server (or any HTTPS URL with a self-signed cert). Only affects requests to the SearXNG host above.',
+    ),
+    default: false,
+  }),
 })
 
 export const setEndpoints = sdk.Action.withInput(
@@ -87,6 +94,7 @@ export const setEndpoints = sdk.Action.withInput(
       vllmModel: store?.vllm.model ?? '',
       vllmApiKey: store?.vllm.apiKey ?? '',
       searxngUrl: store?.searxng.url ?? '',
+      searxngAllowSelfSigned: store?.searxng.allowSelfSigned ?? false,
     }
   },
 
@@ -100,6 +108,7 @@ export const setEndpoints = sdk.Action.withInput(
       },
       searxng: {
         url: input.searxngUrl.trim(),
+        allowSelfSigned: input.searxngAllowSelfSigned,
       },
     })
   },
