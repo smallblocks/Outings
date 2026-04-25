@@ -12,8 +12,9 @@ const vllmSchema = z
 const searxngSchema = z
   .object({
     url: z.string().catch(''),
+    allowSelfSigned: z.boolean().catch(false),
   })
-  .catch(() => ({ url: '' }))
+  .catch(() => ({ url: '', allowSelfSigned: false }))
 
 const scheduleSchema = z
   .object({
